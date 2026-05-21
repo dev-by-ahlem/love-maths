@@ -1,3 +1,298 @@
-body{
-    background-color: blue;
+/* --------- Global style */
+
+/* Set the page background, font, text color, and center alignment */
+body {
+    background-color: white;
+    font-family: "Raleway", sans-serif;
+    color: #445361;
+    text-align: center;
+}
+
+/* --------- Heading */
+
+/* Style for the main heading: centered and large font size */
+.heading {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+/* Logo size and spacing */
+.logo {
+    height: 40px;
+    padding-right: 5px;
+}
+
+/* --------- Game layout */
+
+/* Main game container: background, size, max dimensions, centered */
+.game-area {
+    background-color: #E6ECF0;
+    box-sizing: border-box;
+    width: 85%;
+    height: 65vh;
+    max-height: 450px;
+    max-width: 830px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1%;
+}
+
+/* Container for the question text and input */
+.question-area {
+    width: 50%;
+    font-size: 2rem;
+    margin: auto;
+    padding: 50px 0;
+}
+
+/* Add spacing around each question element */
+.question-area span {
+    padding: 0 15px;
+}
+
+/* Score section layout: centered and sized */
+.score-area {
+    margin: 5px auto;
+    width: 60%;
+    font-size: 1.2rem;
+}
+
+/* Container for the operation buttons */
+.controls-area {
+    width: 85%;
+    margin: 30px auto;
+}
+
+/* Style for the correct score number */
+#score {
+    color: green;
+    font-weight: bold;
+}
+
+/* Style for the incorrect score number */
+#incorrect {
+    color: red;
+    font-weight: bold;
+}
+
+/* Hidden message for small screens */
+.answer-message {
+    display: none;
+    font-size: 1rem;
+}
+
+/* Input box styling */
+#answer-box {
+    border: none;
+    color: #445361;
+    display: inline-block;
+    height: 40px;
+    width: 80px;
+    font-size: 1.2rem;
+}
+
+/* Score text layout */
+.scores {
+    display: inline-block;
+    padding: 25px;
+}
+
+/* --------- Buttons */
+
+/* Base button style: size, font, uppercase text */
+.btn {
+    width: 220px;
+    height: 60px;
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: white;
+}
+
+/* Remove focus outline */
+.btn:focus {
+    outline: none;
+}
+
+/* Large round buttons for operations */
+.btn--big {
+    padding-top: 10px;
+    border-radius: 50%;
+    background-color: white;
+    border: 10px solid;
+    width: 100px;
+    height: 100px;
+    font-size: 3.2rem;
+    margin: 0 30px;
+    transition: all 0.5s;
+}
+
+/* Blue button border and text */
+.btn--blue {
+    border-color: blue;
+    color: blue;
+}
+
+/* Blue button hover/active state */
+.btn--blue:active,
+.btn--blue:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+/* Orange button border and text */
+.btn--orange {
+    border-color: orange;
+    color: orange;
+}
+
+/* Orange button hover/active state */
+.btn--orange:active,
+.btn--orange:hover {
+    background-color: darkorange;
+    color: white;
+}
+
+/* Red button border and text */
+.btn--red {
+    border-color: red;
+    color: red;
+}
+
+/* Red button hover/active state */
+.btn--red:active,
+.btn--red:hover {
+    background-color: darkred;
+    color: white;
+}
+
+/* Green button border and text */
+.btn--green {
+    border-color: green;
+    color: green;
+}
+
+/* Green button hover/active state */
+.btn--green:active,
+.btn--green:hover {
+    background-color: darkgreen;
+    color: white;
+}
+
+/* Submit button styling */
+.btn--gray {
+    margin-top: 25px;
+    background-color: #445361;
+    border: 1px transparent;
+    border-radius: 20px;
+}
+
+/* Submit button hover/active state */
+.btn--gray:active,
+.btn--gray:hover {
+    background-color: #0d1013;
+}
+
+/* --------- Media queries */
+
+/* Styles for screens up to 414px wide */
+@media (max-width: 414px) {
+
+    /* Make controls full width */
+    .controls-area {
+        width: 100%;
+    }
+
+    /* Smaller round buttons for mobile */
+    .btn--big {
+        margin: 0 10px;
+        padding: 5px;
+        border: 5px solid;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    /* Adjust icon size inside buttons */
+    .btn--big::after {
+        font-size: 0.6rem;
+        left: -0.7rem;
+    }
+
+    /* Adjust question area spacing */
+    .question-area {
+        padding: 10% 0;
+        width: 100%;
+    }
+
+    /* Remove extra spacing around spans */
+    .question-area span {
+        padding: 0;
+    }
+
+    /* Show the answer message on small screens */
+    .answer-message {
+        display: block;
+    }
+
+    /* Center the input box */
+    #answer-box {
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* Remove extra margin on submit button */
+    .btn--gray {
+        margin-top: 0;
+    }
+
+    /* Make score area full width */
+    .score-area {
+        width: 100%;
+    }
+
+    /* Stack score items vertically */
+    .scores {
+        margin: 0.5em auto;
+        display: block;
+        padding: 5px;
+    }
+
+    /* Smaller heading for mobile */
+    .heading {
+        font-size: 2rem;
+    }
+}
+
+.btn--big::after{
+    content:attr(data-type);
+    font-size: 1rem;
+    color:gray;
+    position: relative;
+    left: -0.5rem;
+}
+
+/* Styles for screens up to 320px wide */
+@media (max-width: 320px) {
+
+    /* Increase game area height for very small screens */
+    .game-area {
+        height: 70vh;
+    }
+
+    /* Adjust controls width and spacing */
+    .controls-area {
+        width: 75%;
+        margin: 10px auto;
+    }
+
+    /* Add spacing around buttons */
+    .btn--big {
+        margin: 10px 10px;
+    }
+
+    /* Reduce padding in question area */
+    .question-area {
+        padding: 10px 0;
+    }
 }
